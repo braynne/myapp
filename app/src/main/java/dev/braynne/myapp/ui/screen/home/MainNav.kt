@@ -107,10 +107,10 @@ sealed class Screen(
 
 	companion object {
 		// Todas las pantallas registradas en la app
-		val all = listOf(
+		val all: List<Screen> by lazy { listOf(
 			Home, Login, Register, Profile, PasswdChange,
 			ProfileEdit, Settings, Help, Terms, About
-		)
+		) }
 
 		// Solo las que se muestran como items en el menú del Home
 		val visibles get() = all.filter { it.visible }
