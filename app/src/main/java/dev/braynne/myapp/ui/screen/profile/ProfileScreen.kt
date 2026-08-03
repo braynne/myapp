@@ -74,7 +74,6 @@ fun ProfileScreen(
 		SecondaryButton(
 			text = "Cambiar contraseña",
 			onClick = onChangePasswd,
-			contentcolor = MaterialTheme.colorScheme.primary
 		)
 
 		Spacer(modifier = Modifier.height(8.dp))
@@ -83,7 +82,6 @@ fun ProfileScreen(
 			text = "Cerrar sesión",
 			onClick = onLogout,
 			loading = state.loadingLogout,
-			contentcolor = MaterialTheme.colorScheme.error
 		)
 	}
 }
