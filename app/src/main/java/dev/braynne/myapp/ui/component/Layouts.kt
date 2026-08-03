@@ -15,6 +15,7 @@ import androidx.compose.ui.unit.dp
 val defaultAction: () -> Unit = {}
 val defaultContent: @Composable () -> Unit = {}
 val defaultColumnContent: @Composable ColumnScope.() -> Unit = {}
+val defaultBoxContent: @Composable BoxScope.() -> Unit = {}
 val defaultRowContent: @Composable RowScope.() -> Unit = {}
 
 
@@ -68,7 +69,7 @@ fun ColumnScaffold(
 		XColumn(
 			modifier
 				.padding(innerPadding)
-				.padding(all = padding),
+				.padding(horizontal = padding),
 			content = content
 		)
 	}
@@ -81,7 +82,7 @@ fun BoxScaffold(
 	topBar: @Composable () -> Unit = defaultContent,
 	floatingActionButton: @Composable () -> Unit = defaultContent,
 	bottomBar: @Composable () -> Unit = defaultContent,
-	content: @Composable ColumnScope.() -> Unit = defaultColumnContent
+	content: @Composable BoxScope.() -> Unit = defaultBoxContent
 ) {
 	Scaffold (
 		topBar = topBar,
@@ -90,7 +91,10 @@ fun BoxScaffold(
 	) {
 			innerPadding ->
 		Box(
-			Modifier.fillMaxSize().padding(innerPadding)
+			Modifier.fillMaxSize()
+				.padding(innerPadding)
+				.padding(horizontal = padding),
+			content = content
 		)
 	}
 }

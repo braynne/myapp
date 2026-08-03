@@ -36,19 +36,20 @@ fun TodosScreen(
 	}
 
 	BoxScaffold (
+		padding = 8.dp,
 		topBar = { XTopAppBar(title = "Mis tareas") },
 		floatingActionButton = { XFloatingActionButton(
 			onClick = { state = state.copy(showDialog = true) }
 		) }
 	) {
 		if (state.loading) {
-			CircularProgressIndicator(modifier = Modifier.align(Alignment.CenterHorizontally))
+			CircularProgressIndicator(modifier = Modifier.align(Alignment.Center))
 		}
 
 		else if (state.tasks.isEmpty()) {
 			BodyLarge(
 				text = "Tareas",
-				modifier = Modifier.align(Alignment.CenterHorizontally),
+				modifier = Modifier.align(Alignment.Center),
 				color = MaterialTheme.colorScheme.onSurfaceVariant
 			)
 		} else {

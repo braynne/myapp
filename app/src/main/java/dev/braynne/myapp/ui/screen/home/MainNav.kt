@@ -16,6 +16,7 @@ import dev.braynne.myapp.ui.screen.passwdchange.PasswdChangeScreen
 import dev.braynne.myapp.ui.screen.profile.ProfileScreen
 import dev.braynne.myapp.ui.screen.settings.SettingsScreen
 import dev.braynne.myapp.ui.screen.terms.TermsScreen
+import dev.braynne.myapp.ui.screen.todos.TodosScreen
 
 // ---------- Definición centralizada de pantallas ----------
 sealed class Screen(
@@ -73,6 +74,14 @@ sealed class Screen(
 		}
 	)
 
+	object Todos : Screen(
+		route = "todos",
+		label = "TODOs",
+		content = {
+			TodosScreen()
+		}
+	)
+
 	object Settings : Screen(
 		route = "settings",
 		label = "Ajustes",
@@ -109,7 +118,7 @@ sealed class Screen(
 		// Todas las pantallas registradas en la app
 		val all: List<Screen> by lazy { listOf(
 			Home, Login, Register, Profile, PasswdChange,
-			ProfileEdit, Settings, Help, Terms, About
+			ProfileEdit, Todos, Settings, Help, Terms, About
 		) }
 
 		// Solo las que se muestran como items en el menú del Home
